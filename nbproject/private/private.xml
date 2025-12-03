@@ -6,9 +6,9 @@
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/web/errors/404.xhtml</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/web/productos/producto-sudadera.xhtml</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/.git/config</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/src/java/Bean/RegistroBean.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/src/java/Bean/UsuarioBean.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/src/java/Bean/LoginBean.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/src/java/beans/RegistroBean.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/src/java/beans/UsuarioBean.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/src/java/beans/LoginBean.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/src/java/dao/UsuarioDAO.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/src/java/modelo/Usuario.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/web/WEB-INF/web.xml</file>
@@ -19,7 +19,7 @@
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/web/admin/inventario.xhtml</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/web/admin/pedidos.xhtml</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/web/admin/productos.xhtml</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/src/java/Bean/AdminBean.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/src/java/beans/AdminBean.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/web/login.xhtml</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/web/registro.xhtml</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Deportes360/src/java/dao/Conexion.java</file>

@@ -1,2 +1,0 @@
-dao.UsuarioDAO
-bean.UsuarioBean
