@@ -1,4 +1,4 @@
-package beans; 
+package beans;
 
 import dao.UsuarioDAO;
 import javax.faces.application.FacesMessage;
@@ -6,14 +6,15 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import modelo.Usuario;
+import java.util.Date;
 
-@ManagedBean(name = "registroBean") 
+@ManagedBean(name = "registroBean")
 @RequestScoped
 public class RegistroBean {
 
     private String nombre;
     private String direccion;
-    private String fechaNacimiento;
+    private Date fechaNacimiento; // ✅ ahora es Date
     private String barrio;
     private String usuCorreo;
     private String usuario;
@@ -23,7 +24,6 @@ public class RegistroBean {
 
     // ------------------ MÉTODO REGISTRAR ------------------
     public String registrar() {
-        // Validación de contraseñas
         if (!clave.equals(confirmar)) {
             FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_ERROR, "Las contraseñas no coinciden", null));
@@ -34,20 +34,21 @@ public class RegistroBean {
             Usuario u = new Usuario();
             u.setNombre(nombre);
             u.setDireccion(direccion);
-            u.setFechaNacimiento(fechaNacimiento);
+            u.setFechaNacimiento(fechaNacimiento); // ✅ ya es Date
             u.setBarrio(barrio);
             u.setUsuCorreo(usuCorreo);
             u.setUsuario(usuario);
             u.setClave(clave);
             u.setUsuTelefono(usutelefono);
-            u.setRol("cliente"); // rol por defecto
+            u.setRol("cliente");
 
             UsuarioDAO dao = new UsuarioDAO();
 
             if (dao.registrar(u)) {
                 FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage("Registro exitoso"));
-                return "login.xhtml?faces-redirect=true"; // redirige al login
+                return "/login.xhtml?faces-redirect=true";
+
             } else {
                 FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error al registrar", null));
@@ -69,8 +70,8 @@ public class RegistroBean {
     public String getDireccion() { return direccion; }
     public void setDireccion(String direccion) { this.direccion = direccion; }
 
-    public String getFechaNacimiento() { return fechaNacimiento; }
-    public void setFechaNacimiento(String fechaNacimiento) { this.fechaNacimiento = fechaNacimiento; }
+    public Date getFechaNacimiento() { return fechaNacimiento; }
+    public void setFechaNacimiento(Date fechaNacimiento) { this.fechaNacimiento = fechaNacimiento; }
 
     public String getBarrio() { return barrio; }
     public void setBarrio(String barrio) { this.barrio = barrio; }
@@ -88,5 +89,5 @@ public class RegistroBean {
     public void setConfirmar(String confirmar) { this.confirmar = confirmar; }
 
     public String getUsutelefono() { return usutelefono; }
-    public void setUsuTelefono(String usutelefono) { this.usutelefono = usutelefono; }
+    public void setUsutelefono(String usutelefono) { this.usutelefono = usutelefono; }
 }

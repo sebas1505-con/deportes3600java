@@ -23,24 +23,22 @@
 
         <h:form styleClass="login-form">
 
-            <h:messages globalOnly="true" style="color: red; margin-bottom: 10px;" />
+    <h:messages globalOnly="true" style="color: red; margin-bottom: 10px;" />
 
-            <label for="email">Correo electrónico:</label>
-            <h:inputText id="email" value="#{loginBean.correo}" required="true"
-                         styleClass="input" />
+    <h:outputLabel for="email" value="Correo electrónico:" />
+    <h:inputText id="email" value="#{loginBean.correo}" required="true" styleClass="input" />
 
-            <label for="password">Contraseña:</label>
-            <h:inputSecret id="password" value="#{loginBean.clave}" required="true"
-                           styleClass="input" />
+    <h:outputLabel for="password" value="Contraseña:" />
+    <h:inputSecret id="password" value="#{loginBean.clave}" required="true" styleClass="input" />
 
-            <h:commandButton value="Iniciar sesión"
-                             action="#{loginBean.iniciarSesion}"
-                             styleClass="btn-login" />
+    <h:commandButton value="Iniciar sesión"
+                     action="#{loginBean.iniciarSesion}"
+                     styleClass="btn-login" />
 
-            <a href="menu.xhtml" class="btn-volver">
-                ¿Quieres registrarte con nosotros?
-            </a>
-        </h:form>
+    
+    <h:link outcome="menu" value="¿Quieres registrarte con nosotros?" styleClass="btn-volver" />
+</h:form>
+
     </div>
 </h:body>
 </html>

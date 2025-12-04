@@ -27,7 +27,7 @@ public class UsuarioDAO {
             ps.setString(4, u.getClave());
             ps.setString(5, u.getUsuTelefono());
             ps.setString(6, u.getDireccion());
-            ps.setString(7, u.getFechaNacimiento());
+            ps.setDate(7, new java.sql.Date(u.getFechaNacimiento().getTime())); // ✅ ahora es Date
             ps.setString(8, u.getBarrio());
             ps.setString(9, u.getRol());
             ps.executeUpdate();
@@ -53,7 +53,7 @@ public class UsuarioDAO {
                 u.setClave(rs.getString("clave"));
                 u.setUsuTelefono(rs.getString("usutelefono"));
                 u.setDireccion(rs.getString("direccion"));
-                u.setFechaNacimiento(rs.getString("fechaNacimiento"));
+                u.setFechaNacimiento(rs.getDate("fechaNacimiento")); // ✅ recupera como Date
                 u.setBarrio(rs.getString("barrio"));
                 u.setRol(rs.getString("rol"));
                 lista.add(u);
@@ -76,7 +76,7 @@ public class UsuarioDAO {
             ps.setString(4, u.getClave());
             ps.setString(5, u.getUsuTelefono());
             ps.setString(6, u.getDireccion());
-            ps.setString(7, u.getFechaNacimiento());
+            ps.setDate(7, new java.sql.Date(u.getFechaNacimiento().getTime())); // ✅
             ps.setString(8, u.getBarrio());
             ps.setString(9, u.getRol());
             ps.setInt(10, u.getId());
@@ -120,7 +120,7 @@ public class UsuarioDAO {
                 u.setClave(rs.getString("clave"));
                 u.setUsuTelefono(rs.getString("usutelefono"));
                 u.setDireccion(rs.getString("direccion"));
-                u.setFechaNacimiento(rs.getString("fechaNacimiento"));
+                u.setFechaNacimiento(rs.getDate("fechaNacimiento")); // ✅ recupera como Date
                 u.setBarrio(rs.getString("barrio"));
                 u.setRol(rs.getString("rol"));
             }

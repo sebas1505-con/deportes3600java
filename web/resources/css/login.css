@@ -102,4 +102,13 @@ label {
 .btn-volver-home:hover {
   background: #0056b3;
 }
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1; /* lo manda detrás del login */
+}
 

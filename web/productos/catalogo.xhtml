@@ -13,6 +13,8 @@
 </h:head>
 
 <h:body>
+    
+#{loginBean.verif_sesion('cliente')}
 
 <header class="header">
     <div class="container menu">
@@ -21,9 +23,9 @@
 
         <nav class="navbar">
             <ul>
-                <li><a href="usuario.xhtml">volver</a></li>
+                <h:link outcome="/usuario" value="volver" />
                 <li><a href="carrito.xhtml">Carrito</a></li>
-                <li><a href="contacto.xhtml">Contacto</a></li>
+                <li><a href="contacto1.xhtml">Contacto</a></li>
             </ul>
         </nav>
 
@@ -117,7 +119,7 @@
 
         <ul>
             <li><a href="catalogo.xhtml">volver</a></li>
-            <li><a href="contacto.xhtml">Contacto</a></li>
+            <li><a href="contacto1.xhtml">Contacto</a></li>
         </ul>
 
     </div>

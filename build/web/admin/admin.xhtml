@@ -4,12 +4,10 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    
+
 <f:metadata>
-    <f:event type="preRenderView" listener="#{loginBean.verif_sesion('A')}" />
+    <f:event type="preRenderView" listener="#{loginBean.verif_sesion('admin')}" />
 </f:metadata>
-
-
 
 <h:head>
     <meta charset="UTF-8"/>
@@ -21,20 +19,17 @@
 </h:head>
 
 <h:body>
-
 <header class="header">
     <h1>Panel de Administrador - Deportes 360</h1>
 </header>
 
 <nav class="sidebar">
     <ul>
-        
-        <li><h:link outcome="pedidos" value="Pedidos"/></li>
         <li><h:link outcome="pedidos" value="Pedidos"/></li>
         <li><h:link outcome="productos" value="Productos"/></li>
         <li><h:link outcome="inventario" value="Inventario"/></li>
         <li><h:link outcome="nuevoproducto" value="Nuevo Producto"/></li>
-        <li><a href="../login.xhtml">Cerrar sesión</a></li>
+        <li><h:commandLink value="Cerrar sesión" action="#{loginBean.cerrarSesion}" /></li>
     </ul>
 </nav>
 
@@ -58,7 +53,6 @@
         </div>
     </section>
 
-
     <!-- GRÁFICA -->
     <section class="grafico">
         <h2>Ventas de la Semana</h2>
@@ -67,11 +61,9 @@
         </div>
     </section>
 
-
     <!-- ÚLTIMOS PEDIDOS -->
     <section class="pedidos">
         <h2>Últimos Pedidos</h2>
-
         <table class="tabla-pedidos">
             <thead>
                 <tr>
@@ -82,7 +74,6 @@
                     <th>Total</th>
                 </tr>
             </thead>
-
             <tbody>
                 <ui:repeat value="#{adminBean.ultimosPedidos}" var="p">
                     <tr>
@@ -97,30 +88,24 @@
         </table>
     </section>
 
-
     <!-- INVENTARIO VISUAL -->
     <section class="inventario-visual">
         <h2>Inventario de Productos</h2>
-
         <div class="inventario-grid">
-
             <ui:repeat value="#{adminBean.inventario}" var="i">
                 <div class="producto-card">
-                    <img src="#{resource['images/' += i.imagen]}" alt="img"/>
+                    <h:graphicImage library="images" name="#{i.imagen}" alt="img" />
                     <h4>#{i.nombre}</h4>
                     <p>Precio: $ #{i.precio}</p>
                     <p>Stock: #{i.stock} unidades</p>
                 </div>
             </ui:repeat>
-
         </div>
     </section>
-
 
     <!-- USUARIOS -->
     <section class="usuarios">
         <h2>Gestión de Usuarios</h2>
-
         <table class="tabla-usuarios">
             <thead>
                 <tr>
@@ -130,7 +115,6 @@
                     <th>Rol</th>
                 </tr>
             </thead>
-
             <tbody>
                 <ui:repeat value="#{adminBean.usuarios}" var="u">
                     <tr>
@@ -142,7 +126,6 @@
                 </ui:repeat>
             </tbody>
         </table>
-
     </section>
 
 </main>
@@ -165,3 +148,4 @@
 
 </h:body>
 </html>
+

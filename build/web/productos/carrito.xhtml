@@ -7,18 +7,13 @@
 <h:head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
     <title>Carrito de Compras - Deportes 360</title>
-
-    <!-- Ícono -->
     <link rel="icon" type="image/x-icon" href="#{resource['images/Carrito.png']}"/>
-
-    <!-- CSS -->
     <h:outputStylesheet library="css" name="carrito.css"/>
 </h:head>
 
 <h:body>
-
+#{loginBean.verif_sesion('cliente')}
     <!-- HEADER -->
     <header class="header">
         <div class="container menu">
@@ -27,9 +22,9 @@
 
             <nav class="navbar">
                 <ul>
-                    <li><a href="usuario.xhtml">Inicio</a></li>
+                    <h:link outcome="/usuario" value="volver" />
                     <li><a href="catalogo.xhtml">Productos</a></li>
-                    <li><a href="contacto.xhtml">Contacto</a></li>
+                    <li><a href="contacto1.xhtml">Contacto</a></li>
                 </ul>
             </nav>
         </div>
@@ -84,7 +79,7 @@
                 <div class="acciones">
                     
                     <a href="catalogo.xhtml" class="btn-finalizar">Seguir comprando</a>
-                    <a href="505.xhtml" class="btn-finalizar">¿Tienes un cupón?</a>
+                    <a href="/errors/PaginaNo.xhtml" class="btn-finalizar">¿Tienes un cupón?</a>
                     <a href="usuario.xhtml" class="btn-finalizar">Volver</a>
                     <a href="formulario.xhtml" class="btn-finalizar">Finalizar compra</a>
                     <h:commandButton 

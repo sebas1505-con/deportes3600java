@@ -1,14 +1,16 @@
 package modelo;
 
+import java.util.Date;
+
 public class Usuario {
     private int id;
     private String nombre;
     private String usuCorreo;
     private String usuario;
     private String clave;
-    private String usutelefono; // CORRECTO
+    private String usutelefono;
     private String direccion;
-    private String fechaNacimiento;
+    private Date fechaNacimiento; // ✅ ahora es Date
     private String barrio;
     private String rol;
 
@@ -34,8 +36,8 @@ public class Usuario {
     public String getDireccion() { return direccion; }
     public void setDireccion(String direccion) { this.direccion = direccion; }
 
-    public String getFechaNacimiento() { return fechaNacimiento; }
-    public void setFechaNacimiento(String fechaNacimiento) { this.fechaNacimiento = fechaNacimiento; }
+    public Date getFechaNacimiento() { return fechaNacimiento; }
+    public void setFechaNacimiento(Date fechaNacimiento) { this.fechaNacimiento = fechaNacimiento; }
 
     public String getBarrio() { return barrio; }
     public void setBarrio(String barrio) { this.barrio = barrio; }

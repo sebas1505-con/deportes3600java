@@ -17,9 +17,9 @@
         <a href="#" class="logo">DEPORTES 360</a>
         <nav class="navbar">
             <ul>
-                <li><h:link outcome="usuario" value="Inicio"/></li>
+                <li><h:link outcome="/usuario" value="Inicio"/></li>
                 <li><h:link outcome="catalogo" value="Productos"/></li>
-                <li><h:link outcome="contacto" value="Contacto"/></li>
+                <li><h:link outcome="contacto1" value="Contacto"/></li>
                 <li><h:link outcome="carrito" value="Carrito (#{carritoBean.cantidadProductos})"/></li>
             </ul>
         </nav>
@@ -102,7 +102,7 @@
                 </div>
 
                 <div style="margin-top: 20px;">
-                    <h:link outcome="usuario" value="Volver" styleClass="btn-1"/>
+                    <h:link outcome="catalogo" value="Volver" styleClass="btn-1"/>
                     <h:commandButton value="Comprar"
                                      styleClass="btn-1"
                                      style="margin-left: 10px;"
