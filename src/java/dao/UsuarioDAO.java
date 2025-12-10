@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.*;
+import java.util.List;
 import modelo.Usuario;
 
 public class UsuarioDAO {
@@ -83,6 +84,22 @@ public void setResetToken(String resetToken) { this.resetToken = resetToken; }
 
 public Timestamp getTokenExpiracion() { return tokenExpiracion; }
 public void setTokenExpiracion(Timestamp tokenExpiracion) { this.tokenExpiracion = tokenExpiracion; }
+
+    public boolean registrar(Usuario u) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public List<Usuario> listar() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public boolean actualizar(Usuario usuario) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public boolean eliminar(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
     
 }

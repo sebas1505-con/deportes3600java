@@ -8,86 +8,66 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="#{resource['images/usu.png']}" />
-    <h:outputStylesheet library="css" name="index.css" />
+    <h:outputStylesheet library="css" name="usuario.css" />
     <title>Deportes 360</title>
 </h:head>
 
 <h:body>
     <f:event type="preRenderView" listener="#{loginBean.verifSesionUsuario}" />
 
-    <header class="header">
-        <div class="container">
-            <div class="menu">
+    <!-- HEADER -->
+<header class="header-nav">
+    <div class="container nav-content">
+        <img class="logo-nav" src="#{resource['images/logo-deporte.png']}" alt="Logo Deportes 360" />
 
-                <img class="logo"
-                     src="#{resource['images/logo-deporte.png']}"
-                     alt="Logo Deportes 360" />
+        <nav class="nav-links">
+            <h:link outcome="/productos/catalogo" value="Catálogo" />
+            <h:link outcome="/productos/contacto1" value="Contacto" />
+            <h:link outcome="/productos/carrito" value="Carrito" />
+            <h:link outcome="sugerencias" value="Sugerencias" />
+            <h:link outcome="login" value="Cerrar Sesión" />
+        </nav>
+    </div>
+</header>
 
-                <input type="checkbox" id="menu" />
-                <label for="menu">
-                    <img class="menu-icono"
-                         src="#{resource['images/logo-deporte.png']}"
-                         alt="Menú" />
-                </label>
 
-                <nav class="navbar">
-                    <ul>
-                        <li><h:link outcome="/productos/catalogo" value="Catálogo" /></li>
-                        <li><h:link outcome="/productos/contacto1" value="contacto" /></li>
-                        <li><h:link outcome="/productos/carrito" value="carrito" /></li>
-                        <li><h:link outcome="sugerencias" value="sugerencias" /></li>
-                        <li><h:link outcome="login" value="Cerrar Sesión" /></li>
-                    </ul>
-                </nav>
-
-            </div>
-        </div>
-    </header>
-
-    <div class="hero-section">
-        <div class="container hero-content">
-
-            <div class="hero-text">
-                <h1>CELEBRA CADA MOVIMIENTO</h1>
-                <p>TECNOLOGÍA, COMODIDAD Y ESTILO PARA CADA DÍA.</p>
-                <h:link outcome="/productos/catalogo" value="Catalogo" styleClass="btn-2" />
-            </div>
-
-            <div class="hero-image">
-                <img src="#{resource['images/atleta-hero.png']}" alt="Atleta saltando" />
-            </div>
-
+    <!-- HERO NAVIDAD -->
+    <div class="hero-section"
+     style="background: url('#{resource['images/Navidad360.png']}') center/cover no-repeat; height: 100vh; position: relative;">
+    <div class="container hero-content" style="position: relative; z-index: 2; text-align: center;">
+        <div class="hero-text">
+            <h1 class="usuario-saludo">¡Bienvenido, #{loginBean.usuarioLogueado.nombre}!</h1>
+            <h3 class="subtitulo">Estas fiestas, luce lo que te inspira.</h3>
+            <h:link outcome="/productos/catalogo" value="Explorar Catálogo" styleClass="btn-2" />
         </div>
     </div>
+</div>
 
+
+    <!-- SERVICIOS -->
     <section class="services">
         <div class="container">
             <h2>Nuestros Servicios</h2>
-
             <div class="services-content">
-
                 <div class="services-1">
                     <h3>Envíos a todo el país</h3>
                     <p>Recibe tus prendas deportivas estés donde estés, de forma rápida y segura.</p>
                 </div>
-
                 <div class="services-1">
                     <h3>Cambios sin complicaciones</h3>
                     <p>¿No te quedó bien? Te cambiamos la talla o prenda sin problemas.</p>
                 </div>
-
                 <div class="services-1">
                     <h3>Pagos 100% seguros</h3>
                     <p>Compra con tranquilidad usando nuestras plataformas protegidas.</p>
                 </div>
-
             </div>
         </div>
     </section>
 
+    <!-- PRODUCTOS -->
     <main class="Prodcts container">
         <h2>Prendas Destacadas</h2>
-
         <div class="Prodcts-content">
 
             <div class="Prodcts-1">
@@ -146,13 +126,13 @@
                 <h:link outcome="/productos/producto-buzo.xhtml" value="Más Información" styleClass="btn-1" />
             </div>
 
-        </div>
+       </div>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer container">
         <div class="footer-content">
             <h:link outcome="index" value="Deportes 360" styleClass="logo" />
-
             <ul>
                 <li><h:link outcome="usuario.xhtml" value="Inicio" /></li>
                 <li><h:link outcome="/productos/catalogo" value="Catálogo" /></li>

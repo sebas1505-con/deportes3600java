@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
 
 /* --------------------- RESET --------------------- */
 * {
@@ -102,13 +103,15 @@ body {
 /* --------------------- HERO --------------------- */
 .hero-section {
   width: 100%;
-  padding: 80px 0;
+  padding: 40px 0;  /* reduce el espacio arriba y abajo */
   background: url('images/hero-atletas-fondo.png') center/cover no-repeat,
               linear-gradient(to right, #1e1e1e, #3a3a3a);
   color: white;
   display: flex;
   align-items: center;
 }
+
+
 
 .hero-content {
   display: flex;
@@ -118,8 +121,10 @@ body {
 }
 
 .hero-text {
-  max-width: 550px;
+  max-width: 400px; /* disminuye el ancho del contenedor */
+  padding: 20px;    /* opcional, reduce el padding interno */
 }
+
 
 .hero-text h1 {
   font-size: 50px;
@@ -321,6 +326,31 @@ body {
   }
 }
 
+/* Saludo del usuario en hero */
+.hero-text .usuario-saludo {
+    font-family: 'Russo One', sans-serif; /* más deportiva y moderna */
+    font-size: 3.2rem;
+    color: #ff6600;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Subtítulo motivador debajo del saludo */
+.hero-text .subtitulo {
+    font-family: 'Russo One', sans-serif;
+    font-size: 1.6rem;
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+
+/* Ajuste del botón para que quede alineado */
+.hero-text .btn-2 {
+    padding: 14px 30px;
+    font-size: 16px;
+}
 
 
 

@@ -111,22 +111,28 @@
         </div>
     </div>
 
-  
-    <section class="relacionados">
-        <h3>También te puede interesar</h3>
-        <div class="relacionados-grid">
-            <div class="relacionado">
+  <section class="relacionados">
+    <h3>También te puede interesar</h3>
+    <div class="relacionados-grid">
+        <div class="relacionado">
+            <h:link outcome="producto-sudadera">
                 <h:graphicImage library="images" name="sudadera.png" alt="Sudadera Unisex"/>
                 <p>Sudadera Clásica Unisex</p>
                 <span>$120.000</span>
-            </div>
-            <div class="relacionado">
+                <f:param name="id" value="1"/>
+            </h:link>
+        </div>
+        <div class="relacionado">
+             <h:link outcome="producto-leggings">
                 <h:graphicImage library="images" name="leggings.png" alt="Leggings Mujer"/>
                 <p>Leggings Deportivos Mujer</p>
                 <span>$85.000</span>
-            </div>
+                <f:param name="id" value="2"/>
+            </h:link>
         </div>
-    </section>
+    </div>
+</section>
+
 </main>
 
 <!-- JAVASCRIPT -->

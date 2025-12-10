@@ -13,13 +13,13 @@ import modelo.Usuario;
 @ManagedBean(name="loginBean")
 @SessionScoped
 public class LoginBean implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     private String correo;
     private String clave;
     private Usuario usuarioLogueado;
 
-    // --- GETTERS & SETTERS ---
     public String getCorreo() { return correo; }
     public void setCorreo(String correo) { this.correo = correo; }
 
@@ -28,7 +28,6 @@ public class LoginBean implements Serializable {
 
     public Usuario getUsuarioLogueado() { return usuarioLogueado; }
 
-    // ------------------ INICIAR SESIÓN ------------------
     public String iniciarSesion() {
         try {
             LoginDAO loginDao = new LoginDAO();
@@ -39,15 +38,13 @@ public class LoginBean implements Serializable {
                         .getExternalContext().getSession(true);
                 session.setAttribute("usuario", usuarioLogueado);
 
-                // Redirigir según rol
                 if ("admin".equalsIgnoreCase(usuarioLogueado.getRol())) {
-                    return "/administrador.xhtml?faces-redirect=true";
+                    return "/admin?faces-redirect=true";
                 } else {
-                    return "/usuario.xhtml?faces-redirect=true";
+                    return "/usuario?faces-redirect=true";
                 }
             }
 
-            // Si no encontró nada
             FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Datos incorrectos"));
             return null;
@@ -60,7 +57,6 @@ public class LoginBean implements Serializable {
         }
     }
 
-    // ------------------ CERRAR SESIÓN ------------------
     public String cerrarSesion() {
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
                 .getExternalContext().getSession(false);
@@ -70,7 +66,6 @@ public class LoginBean implements Serializable {
         return "/login.xhtml?faces-redirect=true";
     }
 
-    // ------------------ VERIFICAR SESIÓN ------------------
     public void verifSesionUsuario() {
         FacesContext context = FacesContext.getCurrentInstance();
         Usuario usuario = (Usuario) context.getExternalContext().getSessionMap().get("usuario");

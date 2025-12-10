@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @ManagedBean(name="ventaBean")
 @SessionScoped
-public class VentaBean implements Serializable {
+public class ventaBean implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int cantProducto;

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      
+
+
 <h:head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -103,6 +107,7 @@
 
                 <div style="margin-top: 20px;">
                     <h:link outcome="catalogo" value="Volver" styleClass="btn-1"/>
+
                     <h:commandButton value="Comprar"
                                      styleClass="btn-1"
                                      style="margin-left: 10px;"
@@ -113,21 +118,26 @@
     </div>
 
     <!-- PRODUCTOS RELACIONADOS -->
-    <section class="relacionados">
-        <h3>También te puede interesar</h3>
-        <div class="relacionados-grid">
-            <div class="relacionado">
+<section class="relacionados">
+    <h3>También te puede interesar</h3>
+    <div class="relacionados-grid">
+        <div class="relacionado">
+            <h:link outcome="producto-top">
                 <h:graphicImage library="images" name="top.png" alt="Top Deportivo Mujer"/>
                 <p>Top Deportivo Mujer</p>
                 <span>$60.000</span>
-            </div>
-            <div class="relacionado">
+            </h:link>
+        </div>
+        <div class="relacionado">
+            <h:link outcome="producto-short">
                 <h:graphicImage library="images" name="short.png" alt="Short Deportivo Hombre"/>
                 <p>Short Deportivo Hombre</p>
                 <span>$49.000</span>
-            </div>
+            </h:link>
         </div>
-    </section>
+    </div>
+</section>
+
 </main>
 
 <script type="text/javascript">

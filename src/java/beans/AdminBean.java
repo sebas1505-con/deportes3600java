@@ -16,7 +16,6 @@ public class AdminBean implements Serializable {
     private Administrador administradorLogueado;                
     private String contrasenaConfirmacion;                       
 
-    // --- GETTERS & SETTERS ---
     public Administrador getAdministrador() { return administrador; }
     public void setAdministrador(Administrador administrador) { this.administrador = administrador; }
 
@@ -26,16 +25,20 @@ public class AdminBean implements Serializable {
     public String getContrasenaConfirmacion() { return contrasenaConfirmacion; }
     public void setContrasenaConfirmacion(String contrasenaConfirmacion) { this.contrasenaConfirmacion = contrasenaConfirmacion; }
 
-    // --- REGISTRAR ---
+    // REGISTRAR
     public String registrar() {
-        if (!administrador.getContraseña().equals(contrasenaConfirmacion)) {
+        if (!administrador.getContrasena().equals(contrasenaConfirmacion)) {
             FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_ERROR, 
                                  "Error", "Las contraseñas no coinciden"));
             return null;
         }
         try {
+            administrador.setRol("repartidor"); // si es un repartidor
+
+            
             AdministradorDAO dao = new AdministradorDAO();
+            administrador.setRol("ADMIN"); // asignar rol
             boolean guardado = dao.registrar(administrador);
 
             if (guardado) {
@@ -62,11 +65,11 @@ public class AdminBean implements Serializable {
         }
     }
 
-    // --- LOGIN ---
+    // LOGIN
     public String iniciarSesion() {
         try {
             AdministradorDAO dao = new AdministradorDAO();
-            administradorLogueado = dao.login(administrador.getUsuario(), administrador.getContraseña());
+            administradorLogueado = dao.login(administrador.getAdmCorreo(), administrador.getContrasena());
 
             if (administradorLogueado != null) {
                 return "/admin/dashboard.xhtml?faces-redirect=true";
@@ -85,7 +88,7 @@ public class AdminBean implements Serializable {
         }
     }
 
-    // --- CERRAR SESIÓN ---
+    // CERRAR SESIÓN
     public String cerrarSesion() {
         administradorLogueado = null;
         return "/login.xhtml?faces-redirect=true";

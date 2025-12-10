@@ -12,7 +12,6 @@ public class AdministradorDAO {
 
     private Connection con;
 
-    // Constructor: inicializa la conexión
     public AdministradorDAO() {
         try {
             con = Conexion.conectar();
@@ -23,13 +22,14 @@ public class AdministradorDAO {
 
     // Registrar administrador
     public void registrarAdministrador(Administrador admin) throws Exception {
-        String sql = "INSERT INTO administrador (admCorreo, usuario, contraseña, telefono, codigo) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO administrador (admCorreo, usuario, contrasena, telefono, codigo, rol) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, admin.getAdmCorreo());
         ps.setString(2, admin.getUsuario());
-        ps.setString(3, admin.getContraseña());
+        ps.setString(3, admin.getContrasena());
         ps.setString(4, admin.getTelefono());
         ps.setString(5, admin.getCodigo());
+        ps.setString(6, admin.getRol());
         ps.executeUpdate();
     }
 
@@ -45,28 +45,18 @@ public class AdministradorDAO {
             admin.setPk_idAdministrador(rs.getInt("pk_idAdministrador"));
             admin.setAdmCorreo(rs.getString("admCorreo"));
             admin.setUsuario(rs.getString("usuario"));
-            admin.setContraseña(rs.getString("contraseña"));
+            admin.setContrasena(rs.getString("contrasena"));
             admin.setTelefono(rs.getString("telefono"));
             admin.setCodigo(rs.getString("codigo"));
+            admin.setRol(rs.getString("rol"));
             lista.add(admin);
         }
         return lista;
     }
 
-    // Contar administradores
-    public int contarAdministradores() throws Exception {
-        String sql = "SELECT COUNT(*) FROM administrador";
-        Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery(sql);
-        if (rs.next()) {
-            return rs.getInt(1);
-        }
-        return 0;
-    }
-
     // Login administrador
     public Administrador login(String correo, String clave) throws Exception {
-        String sql = "SELECT * FROM administrador WHERE admCorreo = ? AND contraseña = ?";
+        String sql = "SELECT * FROM administrador WHERE admCorreo = ? AND contrasena = ?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, correo);
         ps.setString(2, clave);
@@ -77,15 +67,16 @@ public class AdministradorDAO {
             admin.setPk_idAdministrador(rs.getInt("pk_idAdministrador"));
             admin.setAdmCorreo(rs.getString("admCorreo"));
             admin.setUsuario(rs.getString("usuario"));
-            admin.setContraseña(rs.getString("contraseña"));
+            admin.setContrasena(rs.getString("contrasena"));
             admin.setTelefono(rs.getString("telefono"));
             admin.setCodigo(rs.getString("codigo"));
+            admin.setRol(rs.getString("rol"));
             return admin;
         }
-        return null; // ❌ si no encuentra coincidencia
+        return null;
     }
 
-    // Registrar (versión booleana)
+    // Método booleano para registrar
     public boolean registrar(Administrador admin) {
         try {
             registrarAdministrador(admin);
@@ -96,3 +87,4 @@ public class AdministradorDAO {
         }
     }
 }
+
