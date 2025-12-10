@@ -1,16 +1,37 @@
 package beans;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ManagedProperty;
+import java.io.Serializable;
 
-@ManagedBean(name = "ventaBean")
-@RequestScoped
-public class ventaBean {
+@ManagedBean(name="ventaBean")
+@SessionScoped
+public class VentaBean implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private int cantProducto;
-    private String metodoEnvio;
     private double totalVenta;
+    private String metodoEnvio;
     private String metodoPago;
+
+    @ManagedProperty(value="#{carritoBean}")
+    private CarritoBean carritoBean; // NO debe ser static
+
+    public CarritoBean getCarritoBean() { return carritoBean; }
+    public void setCarritoBean(CarritoBean carritoBean) { this.carritoBean = carritoBean; }
+
+    public void inicializar() {
+        if (carritoBean != null) {
+            this.cantProducto = carritoBean.getCantidadProductos();
+            this.totalVenta = carritoBean.getTotal();
+        }
+    }
+
+    // getters y setters de los demás atributos...
+
+
+
 
     // Getters y setters
     public int getCantProducto() {

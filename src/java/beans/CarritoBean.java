@@ -22,25 +22,26 @@ public class CarritoBean implements Serializable {
     }
     
     
-    public static class Producto implements Serializable {
-        private static final long serialVersionUID = 1L;
-        private String nombre;
-        private int precio;
-        private String imagen;
-        private String talla;
-        
-        public Producto(String nombre, int precio, String imagen, String talla) {
-            this.nombre = nombre;
-            this.precio = precio;
-            this.imagen = imagen;
-            this.talla = talla;
-        }
-        
-        public String getNombre() { return nombre; }
-        public int getPrecio() { return precio; }
-        public String getImagen() { return imagen; }
-        public String getTalla() { return talla; }
+    public class Producto implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private String nombre;
+    private int precio;
+    private String imagen;
+    private String talla;
+    
+    public Producto(String nombre, int precio, String imagen, String talla) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.imagen = imagen;
+        this.talla = talla;
     }
+    
+    public String getNombre() { return nombre; }
+    public int getPrecio() { return precio; }
+    public String getImagen() { return imagen; }
+    public String getTalla() { return talla; }
+}
+
     
     
     public String agregarProducto(String nombre, int precio, String imagen) {

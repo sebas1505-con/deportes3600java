@@ -11,20 +11,23 @@
 </h:head>
 
 <h:body>
+    
+    <f:metadata>
+    <f:viewAction action="#{ventaBean.inicializar}" />
+</f:metadata>
+
 
     <div class="formulario-container">
 
         <h2>📝 Finalizar compra</h2>
 
         <h:form id="formCompra">
-            <label for="cantProducto">Cantidad de productos:</label>
-            <h:inputText id="cantProducto"
-                         value="#{ventaBean.cantProducto}"
-                         required="true"
-                         requiredMessage="La cantidad es obligatoria">
-                <f:convertNumber integerOnly="true" />
-                <f:validateLongRange minimum="1" />
-            </h:inputText>
+           <label for="cantProducto">Cantidad de productos:</label>
+<h:inputText id="cantProducto"
+             value="#{ventaBean.cantProducto}"
+             readonly="true">
+    <f:convertNumber integerOnly="true" />
+</h:inputText>
 
             <label for="metodoEnvio">Método de envío:</label>
             <h:selectOneMenu id="metodoEnvio"
@@ -33,14 +36,13 @@
                 <f:selectItem itemValue="domicilio" itemLabel="Domicilio" />
             </h:selectOneMenu>
 
-            <label for="totalVenta">Total de la venta:</label>
-            <h:inputText id="totalVenta"
-                         value="#{ventaBean.totalVenta}"
-                         required="true"
-                         requiredMessage="El total es obligatorio">
-                <f:convertNumber />
-                <f:validateDoubleRange minimum="0.01" />
-            </h:inputText>
+            
+<label for="totalVenta">Total de la venta:</label>
+<h:inputText id="totalVenta"
+             value="#{ventaBean.totalVenta}"
+             readonly="true">
+    <f:convertNumber />
+</h:inputText>
 
             <label for="metodoPago">Método de pago:</label>
             <h:selectOneMenu id="metodoPago"
